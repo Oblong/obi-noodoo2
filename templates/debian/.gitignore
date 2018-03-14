@@ -8,8 +8,8 @@ tmp
 
 # Debian droppings with unavoidable package names; ob-set-defaults will have to munge this file, too.
 # (can't write a wildcard that matches major version suffix but not e.g. .install files)
-oblong-{{project_name}}-gs{{g_speak_version}}x1
-oblong-{{project_name}}-gs{{g_speak_version}}x1-dbg
+oblong-gs{{g_speak_version}}-{{project_name}}
+oblong-gs{{g_speak_version}}-{{project_name}}-dbg
 
 # ob-set-defaults droppings
 *.bak

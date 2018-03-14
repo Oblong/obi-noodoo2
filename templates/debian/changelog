@@ -1,4 +1,4 @@
-oblong-{{project_name}}-gs{{g_speak_version}}x1 (1.1) trusty; urgency=low
+oblong-gs{{g_speak_version}}-{{project_name}} (0.1) xenial; urgency=low
 
   * Development Begins
 
