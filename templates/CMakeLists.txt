@@ -70,10 +70,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OPTIMIZE_FLAGS} ${ERROR_CXXFLAGS} ${SA
 # libraries this project uses.  Any pkg-config library can be named here.
 ObFindLibs(project ${OB_PREFER_LIB_TYPE}
   libAfferent
-  libNoodoo
-  libTwillig
-  # libGreenhouse
-  # libWebThing  Uncomment to use WebThing
+  libNoodoo2
+  libTwillig2
+  # libGreenhouse2
+  # libWebThing2  Uncomment to use WebThing
 )
 
 SET (project_source_files

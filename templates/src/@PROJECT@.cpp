@@ -1,24 +1,20 @@
 #include <libLoam/c++/ArgParse.h>
 #include <libLoam/c++/ObColor.h>
-#include <libNoodoo/VisiDrome.h>
-#include <libNoodoo/VisiFeld.h>
+#include <libNoodoo2/VisiDrome.h>
+#include <libNoodoo2/VisiFeld.h>
 
 using namespace oblong::loam;
 using namespace oblong::basement;
-using namespace oblong::noodoo;
+using namespace oblong::noodoo2;
 
 // Demo program to draw a different color on each feld,
 // with a commandline argument to change which color it starts with.
 
-ObColor palette[3] = {
-  {0.7, 0.3, 0.3},
-  {0.3, 0.7, 0.3},
-  {0.3, 0.3, 0.7}
-};
+ObColor palette[3] = {{0.7, 0.3, 0.3}, {0.3, 0.7, 0.3}, {0.3, 0.3, 0.7}};
 
 ArgParse::apint demo_shift;
 
-ObRetort Setup (VFBunch *bunch, Atmosphere *atm)
+ObRetort Setup ()
 {
   const int N = VisiFeld::NumAllVisiFelds ();
   for (int i = 0; i < N; ++i)
@@ -45,7 +41,7 @@ int main (int argc, char **argv)
 
   VisiDrome *instance = new VisiDrome ("{{ project_name }}", ap.Leftovers ());
 
-  instance->FindVFBunch ()->AppendPostFeldInfoHook (Setup);
+  Setup ();
   instance->Respire ();
   instance->Delete ();
 
