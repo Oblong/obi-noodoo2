@@ -9,20 +9,40 @@ using namespace oblong::noodoo2;
 
 // Demo program to draw a different color on each feld,
 // with a commandline argument to change which color it starts with.
+// Also creates a Scene and appends it to each VisiFeld.
 
-ObColor palette[3] = {{0.7, 0.3, 0.3}, {0.3, 0.7, 0.3}, {0.3, 0.3, 0.7}};
+ObColor palette[3] = {
+  {0.7, 0.3, 0.3},
+  {0.3, 0.7, 0.3},
+  {0.3, 0.3, 0.7}
+};
 
 ArgParse::apint demo_shift;
 
 ObRetort Setup ()
 {
+  ObRetort error;
+
+  // Create a new scene
+  ObRef <Scene *> scene = new Scene ( SceneMode::Flat, error);
+  if (error.IsError ())
+    return error;
+
+  // For each VisiFeld created by the Feld Protein,
+  // set Background Color and Append Scene
   const int N = VisiFeld::NumAllVisiFelds ();
   for (int i = 0; i < N; ++i)
     {
       VisiFeld *vf = VisiFeld::NthOfAllVisiFelds (i);
       const size_t palette_size = sizeof (palette) / sizeof (*palette);
       vf->SetBackgroundColor (palette[(i + demo_shift) % palette_size]);
+
+      // Append Scene toVisifelds
+      vf->AppendScene (~scene);
     }
+
+  // Now you can add ShowyThings to the Scenes RootShowyThing
+
   return OB_OK;
 }
 
