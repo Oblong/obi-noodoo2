@@ -1,6 +1,8 @@
 # obi-noodoo2
 
 An [obi][] template for creating projects with the Oblong g-speak™ SDK.
+This template uses the noodoo2 graphics library.  To build against
+original noodoo, use the obi-gspeak template.
 
 ## Usage
 
