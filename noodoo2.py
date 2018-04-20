@@ -1,5 +1,5 @@
 '''
-Template for creating new gspeak apps
+Template for creating new gspeak apps with noodoo2
 '''
 from __future__ import print_function
 from subprocess import call
